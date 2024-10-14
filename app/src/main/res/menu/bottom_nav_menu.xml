@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_permission_status"
+        android:icon="@drawable/ic_permission_status_black_24dp"
+        android:title="@string/title_permission_status" />
+
+    <item
+        android:id="@+id/navigation_current"
+        android:icon="@drawable/ic_current_black_24dp"
+        android:title="@string/title_current" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/title_settings" />
+
+</menu>
