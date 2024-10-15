@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">YT Music Discord Rich Presence</string>
-    <string name="title_settings">Settings</string>
     <string name="title_current">Current track</string>
 
     <string name="title_permission_status">Permission status</string>
@@ -8,4 +7,10 @@
     <string name="permission_status_allowed">Allowed</string>
     <string name="permission_status_restricted">Restricted</string>
     <string name="permission_status_open_settings">Open notification settings</string>
+
+    <string name="title_settings">Settings</string>
+    <string name="settings_ip_address">IP address</string>
+    <string name="settings_port">Port</string>
+    <string name="settings_save">Save settings</string>
+    <string name="settings_test">Test connection</string>
 </resources>
