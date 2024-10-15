@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel;
 
 public class PermissionStatusViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private final MutableLiveData<Boolean> mPermissionStatus;
 
     public PermissionStatusViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mPermissionStatus = new MutableLiveData<>();
+        mPermissionStatus.setValue(false);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<Boolean> getPermissionStatus() {
+        return mPermissionStatus;
     }
 }
