@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,16 +16,17 @@ public class CurrentFragment extends Fragment {
     private FragmentCurrentBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        CurrentViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(CurrentViewModel.class);
+                             ViewGroup container, Bundle savedInstanceState
+    ) {
+        CurrentViewModel dashboardViewModel = new ViewModelProvider(this)
+                .get(CurrentViewModel.class);
 
         binding = FragmentCurrentBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        dashboardViewModel.getTitle().observe(getViewLifecycleOwner(), binding.textTitle::setText);
+        dashboardViewModel.getArtist().observe(getViewLifecycleOwner(), binding.textArtist::setText);
+
+        return binding.getRoot();
     }
 
     @Override
