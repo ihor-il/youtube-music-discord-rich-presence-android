@@ -23,24 +23,24 @@ public class SettingsViewModel extends AndroidViewModel {
     public void loadPreferences() {
         SharedPreferences prefs = getApplication().getSharedPreferences(SettingsKeys.PREFERENCES_KEY, Context.MODE_PRIVATE);
 
-        mIp1.setValue(prefs.getInt(SettingsKeys.IP_1, 0));
-        mIp2.setValue(prefs.getInt(SettingsKeys.IP_2, 0));
-        mIp3.setValue(prefs.getInt(SettingsKeys.IP_3, 0));
-        mIp4.setValue(prefs.getInt(SettingsKeys.IP_4, 0));
+        String ip = prefs.getString(SettingsKeys.IP, "0.0.0.0");
+        String[] ipValues = ip.split("\\.");
+
+        mIp1.setValue(Integer.parseInt(ipValues[0]));
+        mIp2.setValue(Integer.parseInt(ipValues[1]));
+        mIp3.setValue(Integer.parseInt(ipValues[2]));
+        mIp4.setValue(Integer.parseInt(ipValues[3]));
         mPort.setValue(prefs.getInt(SettingsKeys.PORT, 0));
     }
 
-    public void savePreferences(int[] values) {
-        if (values.length != 5) return;
+    public void savePreferences(int[] v) {
+        if (v.length != 5) return;
 
         SharedPreferences prefs = getApplication().getSharedPreferences(SettingsKeys.PREFERENCES_KEY, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putInt(SettingsKeys.IP_1, values[0]);
-        editor.putInt(SettingsKeys.IP_2, values[1]);
-        editor.putInt(SettingsKeys.IP_3, values[2]);
-        editor.putInt(SettingsKeys.IP_4, values[3]);
-        editor.putInt(SettingsKeys.PORT, values[4]);
+        editor.putString(SettingsKeys.IP, v[0] + "." + v[1] + "." + v[2] + "." + v[3]);
+        editor.putInt(SettingsKeys.PORT, v[4]);
 
         editor.apply();
     }
